@@ -13,7 +13,7 @@ import XCGLogger
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = [String]()
+    var objects = [Song]()
     let log = XCGLogger.defaultInstance()
 
     let room = "ABCD"
@@ -47,9 +47,7 @@ class MasterViewController: UITableViewController {
                 var rows: [NSIndexPath] = []
                 let queue = dict["queue"] as! [Dictionary<String,AnyObject>]
                 for song in queue {
-                    let title = song["title"] as! String
-                    let artist = song["artist"] as! String
-                    self.objects.append("\(title) - \(artist)")
+                    self.objects.append(Song(json: song))
                     rows.append(NSIndexPath(forRow: self.objects.count-1, inSection: 0))
                 }
                 self.tableView.insertRowsAtIndexPaths(rows, withRowAnimation: .Automatic)
@@ -72,7 +70,7 @@ class MasterViewController: UITableViewController {
     }
 
     func insertNewObject(sender: AnyObject) {
-        objects.append(dateFormatter.stringFromDate(NSDate()))
+        objects.append(Song(json: ["title": "Something", "artist": "Somebody"]))
         let indexPath = NSIndexPath(forRow: objects.count-1, inSection: 0)
         self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
@@ -84,7 +82,7 @@ class MasterViewController: UITableViewController {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
                 let object = objects[indexPath.row]
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = object
+                controller.detailItem = "\(object.title) - \(object.artist)"
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
@@ -105,7 +103,7 @@ class MasterViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
 
         let object = objects[indexPath.row]
-        cell.textLabel!.text = object
+        cell.textLabel!.text = "\(object.title) - \(object.artist)"
         return cell
     }
 

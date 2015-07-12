@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D0558DFE9D9645C659B42BB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88BD5CFBB0194333ABB42DB /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		1EDA18771B52449100D2FB34 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDA18761B52449100D2FB34 /* Song.swift */; };
 		1EF89E791B522B3000D25480 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF89E781B522B3000D25480 /* AppDelegate.swift */; };
 		1EF89E7B1B522B3000D25480 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF89E7A1B522B3000D25480 /* MasterViewController.swift */; };
 		1EF89E7D1B522B3000D25480 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF89E7C1B522B3000D25480 /* DetailViewController.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EDA18761B52449100D2FB34 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		1EF89E731B522B3000D25480 /* Karaoke Kompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Karaoke Kompanion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF89E771B522B3000D25480 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EF89E781B522B3000D25480 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				1EF89E811B522B3000D25480 /* Images.xcassets */,
 				1EF89E831B522B3000D25480 /* LaunchScreen.xib */,
 				1EF89E761B522B3000D25480 /* Supporting Files */,
+				1EDA18761B52449100D2FB34 /* Song.swift */,
 			);
 			path = "Karaoke Kompanion";
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EDA18771B52449100D2FB34 /* Song.swift in Sources */,
 				1EF89E7D1B522B3000D25480 /* DetailViewController.swift in Sources */,
 				1EF89E7B1B522B3000D25480 /* MasterViewController.swift in Sources */,
 				1EF89E791B522B3000D25480 /* AppDelegate.swift in Sources */,
