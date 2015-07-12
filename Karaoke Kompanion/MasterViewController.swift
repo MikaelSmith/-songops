@@ -121,5 +121,9 @@ class MasterViewController: UITableViewController {
         }
     }
 
+    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+        let object = objects.removeAtIndex(fromIndexPath.row)
+        objects.insert(object, atIndex: toIndexPath.row)
+    }
 }
 
