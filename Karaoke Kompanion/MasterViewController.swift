@@ -7,11 +7,20 @@
 //
 
 import UIKit
+import SwiftHTTP
+import XCGLogger
 
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = [AnyObject]()
+    var objects = [String]()
+    let log = XCGLogger.defaultInstance()
+
+    let room = "ABCD"
+    // let host = "https://voiceboxpdx.com"
+    let host = "http://localhost:3000"
+
+    let dateFormatter = NSDateFormatter()
 
 
     override func awakeFromNib() {
@@ -25,6 +34,28 @@ class MasterViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        // TODO: Query VB queue and add items to tableView
+        let request = HTTPTask()
+        request.responseSerializer = JSONResponseSerializer()
+        request.GET("\(host)/api/v1/queue", parameters: ["room_code": room], completionHandler: {(response: HTTPResponse) in
+            if let err = response.error {
+                self.log.warning(err.localizedDescription)
+                return
+            }
+            if let dict = response.responseObject as? Dictionary<String,AnyObject> {
+                self.log.debug("\(dict)")
+                var rows: [NSIndexPath] = []
+                let queue = dict["queue"] as! [Dictionary<String,AnyObject>]
+                for song in queue {
+                    let title = song["title"] as! String
+                    let artist = song["artist"] as! String
+                    self.objects.append("\(title) - \(artist)")
+                    rows.append(NSIndexPath(forRow: self.objects.count-1, inSection: 0))
+                }
+                self.tableView.insertRowsAtIndexPaths(rows, withRowAnimation: .Automatic)
+            }
+        })
+
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
@@ -41,7 +72,7 @@ class MasterViewController: UITableViewController {
     }
 
     func insertNewObject(sender: AnyObject) {
-        objects.append(NSDate())
+        objects.append(dateFormatter.stringFromDate(NSDate()))
         let indexPath = NSIndexPath(forRow: objects.count-1, inSection: 0)
         self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
@@ -51,7 +82,7 @@ class MasterViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let object = objects[indexPath.row] as! NSDate
+                let object = objects[indexPath.row]
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
@@ -73,8 +104,8 @@ class MasterViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
 
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+        let object = objects[indexPath.row]
+        cell.textLabel!.text = object
         return cell
     }
 
@@ -91,7 +122,6 @@ class MasterViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
-
 
 }
 

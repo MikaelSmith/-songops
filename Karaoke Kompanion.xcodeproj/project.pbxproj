@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D0558DFE9D9645C659B42BB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88BD5CFBB0194333ABB42DB /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		1EF89E791B522B3000D25480 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF89E781B522B3000D25480 /* AppDelegate.swift */; };
 		1EF89E7B1B522B3000D25480 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF89E7A1B522B3000D25480 /* MasterViewController.swift */; };
 		1EF89E7D1B522B3000D25480 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF89E7C1B522B3000D25480 /* DetailViewController.swift */; };
@@ -14,6 +15,7 @@
 		1EF89E821B522B3000D25480 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EF89E811B522B3000D25480 /* Images.xcassets */; };
 		1EF89E851B522B3000D25480 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EF89E831B522B3000D25480 /* LaunchScreen.xib */; };
 		1EF89E911B522B3000D25480 /* Karaoke_KompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF89E901B522B3000D25480 /* Karaoke_KompanionTests.swift */; };
+		1EF89E9B1B5234F600D25480 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 1EF89E9A1B5234F600D25480 /* Podfile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,10 @@
 		1EF89E8A1B522B3000D25480 /* Karaoke KompanionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Karaoke KompanionTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF89E8F1B522B3000D25480 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EF89E901B522B3000D25480 /* Karaoke_KompanionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Karaoke_KompanionTests.swift; sourceTree = "<group>"; };
+		1EF89E9A1B5234F600D25480 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		48EF46CE4C3102572BE58312 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		97C9F34108D3F28077196488 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A88BD5CFBB0194333ABB42DB /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D0558DFE9D9645C659B42BB /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,9 +68,12 @@
 		1EF89E6A1B522B3000D25480 = {
 			isa = PBXGroup;
 			children = (
+				1EF89E9A1B5234F600D25480 /* Podfile */,
 				1EF89E751B522B3000D25480 /* Karaoke Kompanion */,
 				1EF89E8D1B522B3000D25480 /* Karaoke KompanionTests */,
 				1EF89E741B522B3000D25480 /* Products */,
+				E7153A01653226C9F9DAF01C /* Pods */,
+				860FD568C3F0CFEA1B12988C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +125,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		860FD568C3F0CFEA1B12988C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A88BD5CFBB0194333ABB42DB /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E7153A01653226C9F9DAF01C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				48EF46CE4C3102572BE58312 /* Pods.debug.xcconfig */,
+				97C9F34108D3F28077196488 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,9 +149,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1EF89E941B522B3000D25480 /* Build configuration list for PBXNativeTarget "Karaoke Kompanion" */;
 			buildPhases = (
+				641F6049A8D9D293455FB251 /* Check Pods Manifest.lock */,
 				1EF89E6F1B522B3000D25480 /* Sources */,
 				1EF89E701B522B3000D25480 /* Frameworks */,
 				1EF89E711B522B3000D25480 /* Resources */,
+				7AEE584053F0F3C886B0D943 /* Embed Pods Frameworks */,
+				53AE19E48DFF37CE634A72F7 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -197,6 +227,7 @@
 			files = (
 				1EF89E801B522B3000D25480 /* Main.storyboard in Resources */,
 				1EF89E851B522B3000D25480 /* LaunchScreen.xib in Resources */,
+				1EF89E9B1B5234F600D25480 /* Podfile in Resources */,
 				1EF89E821B522B3000D25480 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,6 +240,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		53AE19E48DFF37CE634A72F7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		641F6049A8D9D293455FB251 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7AEE584053F0F3C886B0D943 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1EF89E6F1B522B3000D25480 /* Sources */ = {
@@ -344,6 +423,7 @@
 		};
 		1EF89E951B522B3000D25480 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48EF46CE4C3102572BE58312 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Karaoke Kompanion/Info.plist";
@@ -354,6 +434,7 @@
 		};
 		1EF89E961B522B3000D25480 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97C9F34108D3F28077196488 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Karaoke Kompanion/Info.plist";
@@ -415,6 +496,7 @@
 				1EF89E961B522B3000D25480 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1EF89E971B522B3000D25480 /* Build configuration list for PBXNativeTarget "Karaoke KompanionTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +505,7 @@
 				1EF89E991B522B3000D25480 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
