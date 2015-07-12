@@ -16,6 +16,8 @@ class MasterViewController: UITableViewController {
     var objects = [Song]()
     let log = XCGLogger.defaultInstance()
 
+    // TODO: Allow setting host and room in the app.
+    // https://www.airpair.com/swift/building-swift-app-tutorial-3
     let room = "ABCD"
     // let host = "https://voiceboxpdx.com"
     let host = "http://localhost:3000"
@@ -103,7 +105,8 @@ class MasterViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
 
         let object = objects[indexPath.row]
-        cell.textLabel!.text = "\(object.title) - \(object.artist)"
+        cell.textLabel!.text = object.title
+        cell.detailTextLabel!.text = object.artist
         return cell
     }
 
