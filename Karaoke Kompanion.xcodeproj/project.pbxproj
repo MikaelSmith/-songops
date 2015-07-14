@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D0558DFE9D9645C659B42BB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88BD5CFBB0194333ABB42DB /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		1E60F70F1B54CECA00201B32 /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E60F70E1B54CECA00201B32 /* SwiftHTTP.framework */; };
+		1E60F7111B54CECE00201B32 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E60F7101B54CECE00201B32 /* XCGLogger.framework */; };
 		1EDA18771B52449100D2FB34 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDA18761B52449100D2FB34 /* Song.swift */; };
 		1EF89E791B522B3000D25480 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF89E781B522B3000D25480 /* AppDelegate.swift */; };
 		1EF89E7B1B522B3000D25480 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF89E7A1B522B3000D25480 /* MasterViewController.swift */; };
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E60F70E1B54CECA00201B32 /* SwiftHTTP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHTTP.framework; path = "Pods/../build/Debug-iphoneos/Pods/SwiftHTTP.framework"; sourceTree = "<group>"; };
+		1E60F7101B54CECE00201B32 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = "Pods/../build/Debug-iphoneos/Pods/XCGLogger.framework"; sourceTree = "<group>"; };
 		1EDA18761B52449100D2FB34 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		1EF89E731B522B3000D25480 /* Karaoke Kompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Karaoke Kompanion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF89E771B522B3000D25480 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,7 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D0558DFE9D9645C659B42BB /* Pods.framework in Frameworks */,
+				1E60F7111B54CECE00201B32 /* XCGLogger.framework in Frameworks */,
+				1E60F70F1B54CECA00201B32 /* SwiftHTTP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +135,8 @@
 		860FD568C3F0CFEA1B12988C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1E60F7101B54CECE00201B32 /* XCGLogger.framework */,
+				1E60F70E1B54CECA00201B32 /* SwiftHTTP.framework */,
 				A88BD5CFBB0194333ABB42DB /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -192,11 +198,13 @@
 		1EF89E6B1B522B3000D25480 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Simple Things";
 				TargetAttributes = {
 					1EF89E721B522B3000D25480 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = BJG8ZW5KXE;
 					};
 					1EF89E891B522B3000D25480 = {
 						CreatedOnToolsVersion = 6.4;
@@ -363,6 +371,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -430,8 +439,10 @@
 			baseConfigurationReference = 48EF46CE4C3102572BE58312 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Karaoke Kompanion/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.simple-things.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -441,8 +452,10 @@
 			baseConfigurationReference = 97C9F34108D3F28077196488 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Karaoke Kompanion/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.simple-things.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -461,6 +474,7 @@
 				);
 				INFOPLIST_FILE = "Karaoke KompanionTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.simple-things.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Karaoke Kompanion.app/Karaoke Kompanion";
 			};
@@ -476,6 +490,7 @@
 				);
 				INFOPLIST_FILE = "Karaoke KompanionTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.simple-things.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Karaoke Kompanion.app/Karaoke Kompanion";
 			};
