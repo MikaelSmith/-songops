@@ -21,6 +21,7 @@ class DetailViewController: UIViewController {
     }
 
     func configureView() {
+        // TODO: Add all info to detail view
         // Update the user interface for the detail item.
         if let detail: Song = self.detailItem {
             if let label = self.detailDescriptionLabel {
