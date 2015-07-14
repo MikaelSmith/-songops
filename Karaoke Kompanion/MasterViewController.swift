@@ -20,7 +20,7 @@ class MasterViewController: UITableViewController {
     // https://www.airpair.com/swift/building-swift-app-tutorial-3
     let room = "ABCD"
     // let host = "https://voiceboxpdx.com"
-    let host = "http://localhost:3000"
+    let host = "https://vbapi-mock.herokuapp.com"
 
     let dateFormatter = NSDateFormatter()
 
