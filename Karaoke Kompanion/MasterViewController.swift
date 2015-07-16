@@ -44,7 +44,7 @@ class MasterViewController: UITableViewController {
         self.refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         // TODO: http://b2cloud.com.au/how-to-guides/reordering-a-uitableviewcell-from-any-touch-point/
         // https://github.com/adamraudonis/UITableViewCell-Swipe-for-Options
-        self.setEditing(true, animated: true)
+        //self.setEditing(true, animated: true)
     }
 
     override func viewWillAppear(animated: Bool) {

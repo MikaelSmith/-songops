@@ -98,11 +98,11 @@
 				1EF89E781B522B3000D25480 /* AppDelegate.swift */,
 				1EF89E7A1B522B3000D25480 /* MasterViewController.swift */,
 				1EF89E7C1B522B3000D25480 /* DetailViewController.swift */,
+				1EDA18761B52449100D2FB34 /* Song.swift */,
 				1EF89E7E1B522B3000D25480 /* Main.storyboard */,
 				1EF89E811B522B3000D25480 /* Images.xcassets */,
 				1EF89E831B522B3000D25480 /* LaunchScreen.xib */,
 				1EF89E761B522B3000D25480 /* Supporting Files */,
-				1EDA18761B52449100D2FB34 /* Song.swift */,
 			);
 			path = "Karaoke Kompanion";
 			sourceTree = "<group>";
