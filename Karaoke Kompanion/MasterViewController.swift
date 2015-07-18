@@ -13,19 +13,14 @@ import XCGLogger
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var settingsViewController: SettingsViewController? = nil
     let log = XCGLogger.defaultInstance()
     let dateFormatter = NSDateFormatter()
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
     var objects = [Song]()
-
-    // TODO: Allow setting host and room in the app.
-    // https://www.airpair.com/swift/building-swift-app-tutorial-3
-    var room = "ABCD"
-    // let host = "https://voiceboxpdx.com"
-    var host = "https://vbapi-mock.herokuapp.com"
+    var room = ""
+    var host = ""
 
 
     override func viewDidLoad() {
@@ -42,7 +37,6 @@ class MasterViewController: UITableViewController {
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-            self.settingsViewController = SettingsViewController()
         }
 
         self.refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
@@ -69,14 +63,18 @@ class MasterViewController: UITableViewController {
     }
 
     func refresh(sender: AnyObject) {
+        if host.isEmpty {
+            self.refreshControl?.endRefreshing()
+            return
+        }
+
         let request = HTTPTask()
         request.responseSerializer = JSONResponseSerializer()
         request.GET("\(host)/api/v1/queue", parameters: ["room_code": room], completionHandler: {(response: HTTPResponse) in
             if let err = response.error {
                 self.log.warning(err.localizedDescription)
-                return
-            }
-            if let dict = response.responseObject as? Dictionary<String,AnyObject> {
+                self.log.debug("\(response.responseObject)")
+            } else if let dict = response.responseObject as? Dictionary<String,AnyObject> {
                 self.log.debug("\(dict)")
                 let queue = dict["queue"] as! [Dictionary<String,AnyObject>]
 
@@ -84,8 +82,8 @@ class MasterViewController: UITableViewController {
                 // TODO: Look at http://stackoverflow.com/questions/805626/diff-algorithm or https://github.com/NSProgrammer/NSProgrammer/blob/master/code/Examples/TableViewChanges/TableViewChanges/NOBDTableViewOptimizationsNavigationController.m
                 self.objects = queue.map({Song(json: $0)})
                 self.tableView.reloadData()
-                self.refreshControl?.endRefreshing()
             }
+            self.refreshControl?.endRefreshing()
         })
     }
 
@@ -100,6 +98,10 @@ class MasterViewController: UITableViewController {
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
+        } else if segue.identifier == "showSettings" {
+            self.log.debug("segue to settings: \(self.host) - \(self.room)")
+            let controller = (segue.destinationViewController as! UINavigationController).topViewController as! SettingsViewController
+            controller.masterViewController = self
         }
     }
 
@@ -141,9 +143,8 @@ class MasterViewController: UITableViewController {
             request.DELETE("\(host)/api/v1/queue", parameters: ["room_code": room, "from": indexPath.row], completionHandler: {(response: HTTPResponse) in
                 if let err = response.error {
                     self.log.warning(err.localizedDescription)
-                    return
-                }
-                if let dict = response.responseObject as? Dictionary<String,AnyObject> {
+                    self.log.debug("\(response.responseObject)")
+                } else if let dict = response.responseObject as? Dictionary<String,AnyObject> {
                     self.log.debug("\(dict)")
                 }
             })
@@ -162,9 +163,8 @@ class MasterViewController: UITableViewController {
         request.POST("\(host)/api/v1/queue/reorder", parameters: ["room_code": room, "from": fromIndexPath.row, "to": toIndexPath.row], completionHandler: {(response: HTTPResponse) in
             if let err = response.error {
                 self.log.warning(err.localizedDescription)
-                return
-            }
-            if let dict = response.responseObject as? Dictionary<String,AnyObject> {
+                self.log.debug("\(response.responseObject)")
+            } else if let dict = response.responseObject as? Dictionary<String,AnyObject> {
                 self.log.debug("\(dict)")
             }
         })

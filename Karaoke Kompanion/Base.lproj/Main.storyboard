@@ -77,10 +77,10 @@
             </objects>
             <point key="canvasLocation" x="-856" y="-330"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="uTU-PG-fMf">
             <objects>
-                <tableViewController id="Lc4-IF-jPS" sceneMemberID="viewController">
+                <tableViewController id="Lc4-IF-jPS" userLabel="Settings View Controller" customClass="SettingsViewController" customModule="Karaoke_Kompanion" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="vFb-YK-IvE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,6 +97,10 @@
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yyT-WR-2SB">
                                                     <rect key="frame" x="0.0" y="-86" width="600" height="216"/>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="Lc4-IF-jPS" id="LQm-PR-TXC"/>
+                                                        <outlet property="delegate" destination="Lc4-IF-jPS" id="zto-Vb-M4R"/>
+                                                    </connections>
                                                 </pickerView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -116,6 +120,9 @@
                                                     <rect key="frame" x="13" y="7" width="574" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="Lc4-IF-jPS" id="HbP-Rt-qb2"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -134,7 +141,11 @@
                             <outlet property="delegate" destination="Lc4-IF-jPS" id="Nmn-Vz-iEu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="nLv-Uh-tj8"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="nLv-Uh-tj8" userLabel="Settings View Controller"/>
+                    <connections>
+                        <outlet property="roomCodeField" destination="7Rg-ry-NcB" id="JKp-Tr-krc"/>
+                        <outlet property="websiteSelector" destination="yyT-WR-2SB" id="IYk-bP-bb6"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mnb-oL-6ix" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -208,7 +219,7 @@
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                             <state key="normal" title="Settings"/>
                             <connections>
-                                <segue destination="vAc-TQ-DGR" kind="show" id="h3G-25-h4n"/>
+                                <segue destination="vAc-TQ-DGR" kind="show" identifier="showSettings" id="h3G-25-h4n"/>
                             </connections>
                         </button>
                     </navigationItem>
