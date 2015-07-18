@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1E60F70F1B54CECA00201B32 /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E60F70E1B54CECA00201B32 /* SwiftHTTP.framework */; };
 		1E60F7111B54CECE00201B32 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E60F7101B54CECE00201B32 /* XCGLogger.framework */; };
+		1E87752F1B577C3A000AD5A5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87752E1B577C3A000AD5A5 /* SettingsViewController.swift */; };
 		1EDA18771B52449100D2FB34 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDA18761B52449100D2FB34 /* Song.swift */; };
 		1EF89E791B522B3000D25480 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF89E781B522B3000D25480 /* AppDelegate.swift */; };
 		1EF89E7B1B522B3000D25480 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF89E7A1B522B3000D25480 /* MasterViewController.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		1E60F70E1B54CECA00201B32 /* SwiftHTTP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHTTP.framework; path = "Pods/../build/Debug-iphoneos/Pods/SwiftHTTP.framework"; sourceTree = "<group>"; };
 		1E60F7101B54CECE00201B32 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = "Pods/../build/Debug-iphoneos/Pods/XCGLogger.framework"; sourceTree = "<group>"; };
+		1E87752E1B577C3A000AD5A5 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1EDA18761B52449100D2FB34 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		1EF89E731B522B3000D25480 /* Karaoke Kompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Karaoke Kompanion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF89E771B522B3000D25480 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				1EF89E781B522B3000D25480 /* AppDelegate.swift */,
 				1EF89E7A1B522B3000D25480 /* MasterViewController.swift */,
 				1EF89E7C1B522B3000D25480 /* DetailViewController.swift */,
+				1E87752E1B577C3A000AD5A5 /* SettingsViewController.swift */,
 				1EDA18761B52449100D2FB34 /* Song.swift */,
 				1EF89E7E1B522B3000D25480 /* Main.storyboard */,
 				1EF89E811B522B3000D25480 /* Images.xcassets */,
@@ -308,6 +311,7 @@
 				1EDA18771B52449100D2FB34 /* Song.swift in Sources */,
 				1EF89E7D1B522B3000D25480 /* DetailViewController.swift in Sources */,
 				1EF89E7B1B522B3000D25480 /* MasterViewController.swift in Sources */,
+				1E87752F1B577C3A000AD5A5 /* SettingsViewController.swift in Sources */,
 				1EF89E791B522B3000D25480 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

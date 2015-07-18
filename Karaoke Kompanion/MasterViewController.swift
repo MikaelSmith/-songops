@@ -13,16 +13,19 @@ import XCGLogger
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = [Song]()
+    var settingsViewController: SettingsViewController? = nil
     let log = XCGLogger.defaultInstance()
+    let dateFormatter = NSDateFormatter()
+
+    @IBOutlet weak var detailDescriptionLabel: UILabel!
+
+    var objects = [Song]()
 
     // TODO: Allow setting host and room in the app.
     // https://www.airpair.com/swift/building-swift-app-tutorial-3
-    let room = "ABCD"
+    var room = "ABCD"
     // let host = "https://voiceboxpdx.com"
-    let host = "https://vbapi-mock.herokuapp.com"
-
-    let dateFormatter = NSDateFormatter()
+    var host = "https://vbapi-mock.herokuapp.com"
 
 
     override func viewDidLoad() {
@@ -39,6 +42,7 @@ class MasterViewController: UITableViewController {
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+            self.settingsViewController = SettingsViewController()
         }
 
         self.refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
