@@ -38,11 +38,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
                                 <rect key="frame" x="20" y="292" width="560" height="17"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" size="system"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -84,7 +84,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="vFb-YK-IvE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Website" id="iZp-bj-3eT">
                                 <cells>
@@ -187,7 +187,7 @@
                                             <rect key="frame" x="15" y="12" width="31.5" height="19.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jpO-3h-S3g">

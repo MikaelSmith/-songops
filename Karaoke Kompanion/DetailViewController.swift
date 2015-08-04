@@ -25,7 +25,23 @@ class DetailViewController: UIViewController {
         // Update the user interface for the detail item.
         if let detail: Song = self.detailItem {
             if let label = self.detailDescriptionLabel {
-                label.text = "\(detail.title) - \(detail.artist)"
+                var displayText = "title: \(detail.title)\nartist: \(detail.artist)"
+                if let play_id = detail.play_id {
+                    displayText += "\nplay_id: \(play_id)"
+                }
+                if let position = detail.position {
+                    displayText += "\nposition: \(position)"
+                }
+                if let duration = detail.duration {
+                    displayText += "\nduration: \(duration)"
+                }
+                if let song_id = detail.song_id {
+                    displayText += "\nsong_id: \(song_id)"
+                }
+                if let paused = detail.paused {
+                    displayText += "\npaused: \(paused)"
+                }
+                label.text = displayText
             }
         }
     }
