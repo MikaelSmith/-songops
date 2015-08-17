@@ -13,7 +13,7 @@ class SettingsViewController: UITableViewController, UIPickerViewDataSource, UIP
 
     @IBOutlet weak var websiteSelector: UIPickerView!
     @IBOutlet weak var roomCodeField: UITextField!
-    
+
     let log = XCGLogger.defaultInstance()
 
     var masterViewController: MasterViewController? = nil

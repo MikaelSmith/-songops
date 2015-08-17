@@ -109,6 +109,10 @@ class MasterViewController: UITableViewController {
             self.log.debug("segue to settings: \(hosts[host]) - \(room)")
             let controller = (segue.destinationViewController as! UINavigationController).topViewController as! SettingsViewController
             controller.masterViewController = self
+        } else if segue.identifier == "showSearch" {
+            self.log.debug("segue to search")
+            let controller = (segue.destinationViewController as! UINavigationController).topViewController as! SearchViewController
+            controller.masterViewController = self
         }
     }
 
@@ -123,7 +127,7 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("QueueCell", forIndexPath: indexPath)
 
         let object = objects[indexPath.row]
         cell.textLabel!.text = object.title
