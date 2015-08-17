@@ -97,18 +97,18 @@ class MasterViewController: UITableViewController {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let object = objects[indexPath.row]
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+                let controller = segue.destinationViewController as! DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
         } else if segue.identifier == "showSettings" {
             self.log.debug("segue to settings: \(hosts[host]) - \(room)")
-            let controller = (segue.destinationViewController as! UINavigationController).topViewController as! SettingsViewController
+            let controller = segue.destinationViewController as! SettingsViewController
             controller.masterViewController = self
         } else if segue.identifier == "showSearch" {
             self.log.debug("segue to search")
-            let controller = (segue.destinationViewController as! UINavigationController).topViewController as! SearchViewController
+            let controller = segue.destinationViewController as! SearchViewController
             controller.masterViewController = self
         }
     }

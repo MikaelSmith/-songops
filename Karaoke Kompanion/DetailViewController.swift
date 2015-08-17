@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import XCGLogger
 
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
+    let log = XCGLogger.defaultInstance()
 
 
     var detailItem: Song? {
@@ -56,7 +58,6 @@ class DetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 
