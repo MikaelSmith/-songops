@@ -16,28 +16,28 @@ class SettingsViewController: UITableViewController, UIPickerViewDataSource, UIP
     
     let log = XCGLogger.defaultInstance()
 
-    let hosts = ["https://vbapi-mock.herokuapp.com", "http://vbsongs.com"]
     var masterViewController: MasterViewController? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.roomCodeField.text = self.masterViewController?.room
-        for (index, value) in self.hosts.enumerate() {
-            if (value == self.masterViewController?.host) {
-                self.websiteSelector.selectRow(index, inComponent: 0, animated: false)
-            }
-        }
+        self.websiteSelector.selectRow((self.masterViewController?.host)!, inComponent: 0, animated: false)
     }
 
     override func viewWillDisappear(animated: Bool) {
-        let host = hosts[self.websiteSelector.selectedRowInComponent(0)]
-        let room = self.roomCodeField.text
+        let host = self.websiteSelector.selectedRowInComponent(0)
+        let room = self.roomCodeField.text!
         self.log.debug("settings disappearing: \(host) - \(room)")
-        if (self.masterViewController?.host != host || self.masterViewController?.room != room!) {
+        if (self.masterViewController?.host != host || self.masterViewController?.room != room) {
             self.masterViewController?.host = host
-            self.masterViewController?.room = room!
+            self.masterViewController?.room = room
             self.masterViewController?.refresh(self)
+
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setObject(room, forKey: (self.masterViewController?.roomKey)!)
+            defaults.setInteger(host, forKey: (self.masterViewController?.hostKey)!)
+            log.debug("saved user settings: room=\(room), host=\(host)")
         }
     }
 
@@ -47,12 +47,12 @@ class SettingsViewController: UITableViewController, UIPickerViewDataSource, UIP
     }
 
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return hosts.count
+        return (self.masterViewController?.hosts.count)!
     }
     
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
         let label = UILabel()
-        label.text = hosts[row]
+        label.text = self.masterViewController?.hosts[row]
         label.textAlignment = .Left
         return label
     }

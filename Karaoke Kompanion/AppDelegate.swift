@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // Override point for customization after application launch.
         log.setup(.Debug, showLogLevel: true, showFileNames: true, showLineNumbers: true)
 
+        NSUserDefaults.standardUserDefaults().registerDefaults(["room": "", "host": 0])
+
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
