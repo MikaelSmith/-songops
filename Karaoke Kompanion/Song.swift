@@ -11,6 +11,7 @@ import Foundation
 struct Song {
     let title: String
     let artist: String
+
     let play_id: String?
     let position: Int?
     let duration: Int?
@@ -20,6 +21,7 @@ struct Song {
     init(json: Dictionary<String,AnyObject>) {
         self.title = json["title"] as! String
         self.artist = json["artist"] as! String
+
         self.play_id = json["play_id"] as? String
         self.position = json["position"] as? Int
         self.duration = json["duration"] as? Int

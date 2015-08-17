@@ -16,7 +16,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
 
     var masterViewController: MasterViewController? = nil
 
-    var objects = [Song]()
+    var objects = [CatalogItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
                 self.log.debug("\(dict)")
                 let queue = dict["songs"] as! [Dictionary<String,AnyObject>]
 
-                self.objects = queue.map({Song(json: $0)})
+                self.objects = queue.map({CatalogItem(json: $0)})
                 self.log.debug("found \(self.objects.count) songs")
                 self.tableView.reloadData()
             }
@@ -63,5 +63,10 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         cell.textLabel!.text = object.title
         cell.detailTextLabel!.text = object.artist
         return cell
+    }
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let object = objects[indexPath.row]
+        self.log.debug("selected \(object.title) \(object.artist)")
     }
 }
