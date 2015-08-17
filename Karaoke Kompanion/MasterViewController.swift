@@ -32,14 +32,10 @@ class MasterViewController: UITableViewController {
         room = defaults.stringForKey(roomKey)!
         host = defaults.integerForKey(hostKey)
         log.debug("loaded user settings: room=\(room), host=\(host)")
-        
+
         refresh(self)
 
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
-
-        // Disable adding new items
-        //let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
-        //self.navigationItem.rightBarButtonItem = addButton
 
         if let split = self.splitViewController {
             let controllers = split.viewControllers
@@ -62,8 +58,8 @@ class MasterViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func apiUrl() -> String {
-        return "\(hosts[host])/api/v1"
+    func apiUrl(cmd: String) -> String {
+        return "\(hosts[host])/api/v1/\(cmd)"
     }
 
     func insertNewObject(sender: AnyObject) {
@@ -76,8 +72,9 @@ class MasterViewController: UITableViewController {
     func refresh(sender: AnyObject) {
         let request = HTTPTask()
         request.responseSerializer = JSONResponseSerializer()
-        self.log.debug("getting \(apiUrl())/queue for room \(room)")
-        request.GET("\(apiUrl())/queue", parameters: ["room_code": room], completionHandler: {(response: HTTPResponse) in
+        let cmd = apiUrl("queue")
+        self.log.debug("getting \(cmd) for room \(room)")
+        request.GET(cmd, parameters: ["room_code": room], completionHandler: {(response: HTTPResponse) in
             if let err = response.error {
                 self.log.warning(err.localizedDescription)
                 self.log.debug("\(response.responseObject)")
@@ -151,8 +148,9 @@ class MasterViewController: UITableViewController {
 
             let request = HTTPTask()
             request.responseSerializer = JSONResponseSerializer()
-            self.log.debug("deleting \(apiUrl())/queue song \(indexPath.row) for room \(room)")
-            request.DELETE("\(apiUrl())/queue", parameters: ["room_code": room, "from": indexPath.row], completionHandler: {(response: HTTPResponse) in
+            let cmd = apiUrl("queue")
+            self.log.debug("deleting \(cmd) song \(indexPath.row) for room \(room)")
+            request.DELETE(cmd, parameters: ["room_code": room, "from": indexPath.row], completionHandler: {(response: HTTPResponse) in
                 if let err = response.error {
                     self.log.warning(err.localizedDescription)
                     self.log.debug("\(response.responseObject)")
@@ -172,8 +170,9 @@ class MasterViewController: UITableViewController {
 
         let request = HTTPTask()
         request.responseSerializer = JSONResponseSerializer()
-        self.log.debug("posting \(apiUrl())/queue/reorder from \(fromIndexPath.row) to \(toIndexPath.row) for room \(room)")
-        request.POST("\(apiUrl())/queue/reorder", parameters: ["room_code": room, "from": fromIndexPath.row, "to": toIndexPath.row], completionHandler: {(response: HTTPResponse) in
+        let cmd = apiUrl("queue/reorder")
+        self.log.debug("posting \(cmd) from \(fromIndexPath.row) to \(toIndexPath.row) for room \(room)")
+        request.POST(cmd, parameters: ["room_code": room, "from": fromIndexPath.row, "to": toIndexPath.row], completionHandler: {(response: HTTPResponse) in
             if let err = response.error {
                 self.log.warning(err.localizedDescription)
                 self.log.debug("\(response.responseObject)")
