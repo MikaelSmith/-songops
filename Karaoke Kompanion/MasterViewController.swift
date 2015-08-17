@@ -18,7 +18,7 @@ class MasterViewController: UITableViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
-    var objects = [Song]()
+    var objects = [Queued]()
     var room = ""
     let roomKey = "room"
     var host = 0
@@ -64,7 +64,7 @@ class MasterViewController: UITableViewController {
 
     func insertNewObject(sender: AnyObject) {
         // TODO: Implement song search, and adding songs to queue
-        objects.append(Song(json: ["title": "Something", "artist": "Somebody"]))
+        objects.append(Queued(json: ["title": "Something", "artist": "Somebody"]))
         let indexPath = NSIndexPath(forRow: objects.count-1, inSection: 0)
         self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
@@ -84,7 +84,7 @@ class MasterViewController: UITableViewController {
 
                 // Reset local objects and tableView
                 // TODO: Look at http://stackoverflow.com/questions/805626/diff-algorithm or https://github.com/NSProgrammer/NSProgrammer/blob/master/code/Examples/TableViewChanges/TableViewChanges/NOBDTableViewOptimizationsNavigationController.m
-                self.objects = queue.map({Song(json: $0)})
+                self.objects = queue.map({Queued(json: $0)})
                 self.tableView.reloadData()
             }
             self.refreshControl?.endRefreshing()

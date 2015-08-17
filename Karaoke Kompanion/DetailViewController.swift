@@ -15,7 +15,7 @@ class DetailViewController: UIViewController {
     let log = XCGLogger.defaultInstance()
 
 
-    var detailItem: Song? {
+    var detailItem: Queued? {
         didSet {
             // Update the view.
             self.configureView()
@@ -25,7 +25,7 @@ class DetailViewController: UIViewController {
     func configureView() {
         // TODO: Add all info to detail view
         // Update the user interface for the detail item.
-        if let detail: Song = self.detailItem {
+        if let detail: Queued = self.detailItem {
             if let label = self.detailDescriptionLabel {
                 var displayText = "title: \(detail.title)\nartist: \(detail.artist)"
                 if let play_id = detail.play_id {
