@@ -67,12 +67,13 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let object = objects[indexPath.row]
-        self.log.debug("selected \(object.title) \(object.artist)")
+        self.log.debug("selected \(object.title) \(object.artist) with id \(object.id)")
 
         let request = HTTPTask()
         request.responseSerializer = JSONResponseSerializer()
         let cmd = self.masterViewController!.apiUrl("queue")
-        request.POST(cmd, parameters: ["room_code": self.masterViewController!.room, "song_id": String(object.id)], completionHandler: {(response: HTTPResponse) in
+        self.log.debug("posting \(cmd)?room_code=\(self.masterViewController!.room)&song_id=\(object.id)")
+        request.POST(cmd, parameters: ["room_code": self.masterViewController!.room, "song_id": String(object.id!)], completionHandler: {(response: HTTPResponse) in
             if let err = response.error {
                 self.log.warning(err.localizedDescription)
                 self.log.debug("\(response.responseObject)")
