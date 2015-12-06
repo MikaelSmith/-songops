@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftHTTP
+import JSONJoy
 import XCGLogger
 
 class SearchViewController: UITableViewController, UISearchBarDelegate {
@@ -26,23 +27,25 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
 
-        let request = HTTPTask()
-        request.responseSerializer = JSONResponseSerializer()
         let cmd = self.masterViewController!.apiUrl("songs/search")
         self.log.debug("getting \(cmd) for \(searchBar.text!)")
-        request.GET(cmd, parameters: ["query": searchBar.text!], completionHandler: {(response: HTTPResponse) in
-            if let err = response.error {
-                self.log.warning(err.localizedDescription)
-                self.log.debug("\(response.responseObject)")
-            } else if let dict = response.responseObject as? Dictionary<String,AnyObject> {
-                self.log.debug("\(dict)")
-                let queue = dict["songs"] as! [Dictionary<String,AnyObject>]
-
-                self.objects = queue.map({Song(json: $0)})
+        do {
+            let opt = try HTTP.GET(cmd, parameters: ["query": searchBar.text!], requestSerializer: JSONParameterSerializer())
+            opt.start {response in
+                self.log.debug("\(response.description)")
+                if let err = response.error {
+                    self.log.warning(err.localizedDescription)
+                    return
+                }
+                if let queue = JSONDecoder(response.data)["songs"].array {
+                    self.objects = queue.map({Song($0)})
+                }
                 self.log.debug("found \(self.objects.count) songs")
                 self.tableView.reloadData()
             }
-        })
+        } catch let error {
+            self.log.warning("got an error creating the request: \(error)")
+        }
     }
 
     // MARK: - Table View
@@ -69,19 +72,21 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         let object = objects[indexPath.row]
         self.log.debug("selected \(object.title) \(object.artist) with id \(object.id)")
 
-        let request = HTTPTask()
-        request.responseSerializer = JSONResponseSerializer()
         let cmd = self.masterViewController!.apiUrl("queue")
         self.log.debug("posting \(cmd)?room_code=\(self.masterViewController!.room)&song_id=\(object.id)")
-        request.POST(cmd, parameters: ["room_code": self.masterViewController!.room, "song_id": String(object.id!)], completionHandler: {(response: HTTPResponse) in
-            if let err = response.error {
-                self.log.warning(err.localizedDescription)
-                self.log.debug("\(response.responseObject)")
-            } else if let dict = response.responseObject as? Dictionary<String,AnyObject> {
-                self.log.debug("\(dict)")
+        do {
+            let opt = try HTTP.POST(cmd, parameters: ["room_code": self.masterViewController!.room, "song_id": String(object.id!)], requestSerializer: JSONParameterSerializer())
+            opt.start {response in
+                self.log.debug("\(response.description)")
+                if let err = response.error {
+                    self.log.warning(err.localizedDescription)
+                    return
+                }
+                self.masterViewController!.refresh(self)
             }
-            self.masterViewController!.refresh(self)
-        })
+        } catch let error {
+            self.log.warning("got an error creating the request: \(error)")
+        }
 
         self.navigationController!.popViewControllerAnimated(true)
     }

@@ -7,23 +7,24 @@
 //
 
 import Foundation
+import JSONJoy
 
-struct Song {
-    let title: String
-    let artist: String
+struct Song : JSONJoy {
+    let title: String?
+    let artist: String?
 
     let id: Int?
     let language: String?
     let play_count: Int?
     let added_on: String?
 
-    init(json: Dictionary<String,AnyObject>) {
-        self.title = json["title"] as! String
-        self.artist = json["artist"] as! String
+    init(_ decoder: JSONDecoder) {
+        title = decoder["title"].string
+        artist = decoder["artist"].string
 
-        self.id = json["id"] as? Int
-        self.language = json["language"] as? String
-        self.play_count = json["play_count"] as? Int
-        self.added_on = json["added_on"] as? String
+        id = decoder["id"].integer
+        language = decoder["language"].string
+        play_count = decoder["play_count"].integer
+        added_on = decoder["added_on"].string
     }
 }

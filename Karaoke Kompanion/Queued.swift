@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import JSONJoy
 
-struct Queued {
-    let title: String
-    let artist: String
+struct Queued : JSONJoy {
+    let title: String?
+    let artist: String?
 
     let play_id: String?
     let position: Int?
@@ -18,14 +19,14 @@ struct Queued {
     let song_id: Int?
     let paused: String?
 
-    init(json: Dictionary<String,AnyObject>) {
-        self.title = json["title"] as! String
-        self.artist = json["artist"] as! String
+    init(_ decoder: JSONDecoder) {
+        title = decoder["title"].string
+        artist = decoder["artist"].string
 
-        self.play_id = json["play_id"] as? String
-        self.position = json["position"] as? Int
-        self.duration = json["duration"] as? Int
-        self.song_id = json["song_id"] as? Int
-        self.paused = json["paused"] as? String
+        play_id = decoder["play_id"].string
+        position = decoder["position"].integer
+        duration = decoder["duration"].integer
+        song_id = decoder["song_id"].integer
+        paused = decoder["paused"].string
     }
 }

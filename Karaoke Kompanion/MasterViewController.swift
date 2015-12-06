@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftHTTP
+import JSONJoy
 import XCGLogger
 
 class MasterViewController: UITableViewController {
@@ -64,31 +65,34 @@ class MasterViewController: UITableViewController {
 
     func insertNewObject(sender: AnyObject) {
         // TODO: Implement song search, and adding songs to queue
-        objects.append(Queued(json: ["title": "Something", "artist": "Somebody"]))
+        objects.append(Queued(JSONDecoder(["title": "Something", "artist": "Somebody"])))
         let indexPath = NSIndexPath(forRow: objects.count-1, inSection: 0)
         self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
 
     func refresh(sender: AnyObject) {
-        let request = HTTPTask()
-        request.responseSerializer = JSONResponseSerializer()
         let cmd = apiUrl("queue")
         self.log.debug("getting \(cmd) for room \(room)")
-        request.GET(cmd, parameters: ["room_code": room], completionHandler: {(response: HTTPResponse) in
-            if let err = response.error {
-                self.log.warning(err.localizedDescription)
-                self.log.debug("\(response.responseObject)")
-            } else if let dict = response.responseObject as? Dictionary<String,AnyObject> {
-                self.log.debug("\(dict)")
-                let queue = dict["queue"] as! [Dictionary<String,AnyObject>]
-
+        do {
+            let opt = try HTTP.GET(cmd, parameters: ["room_code": room], requestSerializer: JSONParameterSerializer())
+            opt.start {response in
+                self.log.debug("\(response.description)")
+                if let err = response.error {
+                    self.log.warning(err.localizedDescription)
+                    self.refreshControl?.endRefreshing()
+                    return
+                }
+                if let queue = JSONDecoder(response.data)["queue"].array {
+                    self.objects = queue.map({Queued($0)})
+                }
                 // Reset local objects and tableView
                 // TODO: Look at http://stackoverflow.com/questions/805626/diff-algorithm or https://github.com/NSProgrammer/NSProgrammer/blob/master/code/Examples/TableViewChanges/TableViewChanges/NOBDTableViewOptimizationsNavigationController.m
-                self.objects = queue.map({Queued(json: $0)})
                 self.tableView.reloadData()
+                self.refreshControl?.endRefreshing()
             }
-            self.refreshControl?.endRefreshing()
-        })
+        } catch let error {
+            self.log.warning("got an error creating the request: \(error)")
+        }
     }
 
     // MARK: - Segues
@@ -146,18 +150,20 @@ class MasterViewController: UITableViewController {
             objects.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
 
-            let request = HTTPTask()
-            request.responseSerializer = JSONResponseSerializer()
             let cmd = apiUrl("queue")
             self.log.debug("deleting \(cmd) song \(indexPath.row) for room \(room)")
-            request.DELETE(cmd, parameters: ["room_code": room, "from": indexPath.row], completionHandler: {(response: HTTPResponse) in
-                if let err = response.error {
-                    self.log.warning(err.localizedDescription)
-                    self.log.debug("\(response.responseObject)")
-                } else if let dict = response.responseObject as? Dictionary<String,AnyObject> {
-                    self.log.debug("\(dict)")
+            let params: [String: AnyObject] = ["room_code": room, "from": indexPath.row]
+            do {
+                let opt = try HTTP.DELETE(cmd, parameters: params, requestSerializer: JSONParameterSerializer())
+                opt.start {response in
+                    self.log.debug("\(response.description)")
+                    if let err = response.error {
+                        self.log.warning(err.localizedDescription)
+                    }
                 }
-            })
+            } catch let error {
+                self.log.warning("got an error creating the request: \(error)")
+            }
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
             //insertNewObject(self)
@@ -168,17 +174,19 @@ class MasterViewController: UITableViewController {
         let object = objects.removeAtIndex(fromIndexPath.row)
         objects.insert(object, atIndex: toIndexPath.row)
 
-        let request = HTTPTask()
-        request.responseSerializer = JSONResponseSerializer()
         let cmd = apiUrl("queue/reorder")
         self.log.debug("posting \(cmd) from \(fromIndexPath.row) to \(toIndexPath.row) for room \(room)")
-        request.POST(cmd, parameters: ["room_code": room, "from": fromIndexPath.row, "to": toIndexPath.row], completionHandler: {(response: HTTPResponse) in
-            if let err = response.error {
-                self.log.warning(err.localizedDescription)
-                self.log.debug("\(response.responseObject)")
-            } else if let dict = response.responseObject as? Dictionary<String,AnyObject> {
-                self.log.debug("\(dict)")
+        let params: [String: AnyObject] = ["room_code": room, "from": fromIndexPath.row, "to": toIndexPath.row]
+        do {
+            let opt = try HTTP.POST(cmd, parameters: params, requestSerializer: JSONParameterSerializer())
+            opt.start {response in
+                self.log.debug("\(response.description)")
+                if let err = response.error {
+                    self.log.warning(err.localizedDescription)
+                }
             }
-        })
+        } catch let error {
+            self.log.warning("got an error creating the request: \(error)")
+        }
     }
 }

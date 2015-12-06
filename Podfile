@@ -1,6 +1,6 @@
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
-pod 'SwiftHTTP', :git => 'https://github.com/mpclarkson/SwiftHTTP.git', :branch => 'swift-2'
-pod 'XCGLogger', :git => 'https://github.com/DaveWoodCom/XCGLogger.git', :branch => 'swift_2.0'
+pod 'SwiftHTTP', '~> 1.0.2'
+pod 'JSONJoy-Swift', '~> 1.0.0'
+pod 'XCGLogger', '~> 3.1.1'
