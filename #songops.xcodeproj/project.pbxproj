@@ -20,7 +20,7 @@
 		1EF89E801B522B3000D25480 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF89E7E1B522B3000D25480 /* Main.storyboard */; };
 		1EF89E821B522B3000D25480 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EF89E811B522B3000D25480 /* Images.xcassets */; };
 		1EF89E851B522B3000D25480 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EF89E831B522B3000D25480 /* LaunchScreen.xib */; };
-		1EF89E911B522B3000D25480 /* Karaoke_KompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF89E901B522B3000D25480 /* Karaoke_KompanionTests.swift */; };
+		1EF89E911B522B3000D25480 /* #songopsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF89E901B522B3000D25480 /* #songopsTests.swift */; };
 		1EF89E9B1B5234F600D25480 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 1EF89E9A1B5234F600D25480 /* Podfile */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +30,7 @@
 			containerPortal = 1EF89E6B1B522B3000D25480 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 1EF89E721B522B3000D25480;
-			remoteInfo = "Karaoke Kompanion";
+			remoteInfo = "#songops";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -41,7 +41,7 @@
 		1EAFD86D1B81844A00D41958 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		1EAFD86F1B81AD2600D41958 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		1EDA18761B52449100D2FB34 /* Queued.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queued.swift; sourceTree = "<group>"; };
-		1EF89E731B522B3000D25480 /* Karaoke Kompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Karaoke Kompanion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EF89E731B522B3000D25480 /* #songops.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "#songops.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF89E771B522B3000D25480 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EF89E781B522B3000D25480 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EF89E7A1B522B3000D25480 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -49,9 +49,9 @@
 		1EF89E7F1B522B3000D25480 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1EF89E811B522B3000D25480 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1EF89E841B522B3000D25480 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		1EF89E8A1B522B3000D25480 /* Karaoke KompanionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Karaoke KompanionTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EF89E8A1B522B3000D25480 /* #songops.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "#songops.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF89E8F1B522B3000D25480 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1EF89E901B522B3000D25480 /* Karaoke_KompanionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Karaoke_KompanionTests.swift; sourceTree = "<group>"; };
+		1EF89E901B522B3000D25480 /* #songopsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "#songopsTests.swift"; sourceTree = "<group>"; };
 		1EF89E9A1B5234F600D25480 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		48EF46CE4C3102572BE58312 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		97C9F34108D3F28077196488 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,8 +83,8 @@
 			isa = PBXGroup;
 			children = (
 				1EF89E9A1B5234F600D25480 /* Podfile */,
-				1EF89E751B522B3000D25480 /* Karaoke Kompanion */,
-				1EF89E8D1B522B3000D25480 /* Karaoke KompanionTests */,
+				1EF89E751B522B3000D25480 /* #songops */,
+				1EF89E8D1B522B3000D25480 /* #songopsTests */,
 				1EF89E741B522B3000D25480 /* Products */,
 				E7153A01653226C9F9DAF01C /* Pods */,
 				860FD568C3F0CFEA1B12988C /* Frameworks */,
@@ -94,13 +94,13 @@
 		1EF89E741B522B3000D25480 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1EF89E731B522B3000D25480 /* Karaoke Kompanion.app */,
-				1EF89E8A1B522B3000D25480 /* Karaoke KompanionTests.xctest */,
+				1EF89E731B522B3000D25480 /* #songops.app */,
+				1EF89E8A1B522B3000D25480 /* #songops.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1EF89E751B522B3000D25480 /* Karaoke Kompanion */ = {
+		1EF89E751B522B3000D25480 /* #songops */ = {
 			isa = PBXGroup;
 			children = (
 				1EF89E781B522B3000D25480 /* AppDelegate.swift */,
@@ -115,7 +115,8 @@
 				1EF89E831B522B3000D25480 /* LaunchScreen.xib */,
 				1EF89E761B522B3000D25480 /* Supporting Files */,
 			);
-			path = "Karaoke Kompanion";
+			name = "#songops";
+			path = "#songops";
 			sourceTree = "<group>";
 		};
 		1EF89E761B522B3000D25480 /* Supporting Files */ = {
@@ -126,13 +127,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1EF89E8D1B522B3000D25480 /* Karaoke KompanionTests */ = {
+		1EF89E8D1B522B3000D25480 /* #songopsTests */ = {
 			isa = PBXGroup;
 			children = (
-				1EF89E901B522B3000D25480 /* Karaoke_KompanionTests.swift */,
+				1EF89E901B522B3000D25480 /* #songopsTests.swift */,
 				1EF89E8E1B522B3000D25480 /* Supporting Files */,
 			);
-			path = "Karaoke KompanionTests";
+			name = "#songopsTests";
+			path = "#songopsTests";
 			sourceTree = "<group>";
 		};
 		1EF89E8E1B522B3000D25480 /* Supporting Files */ = {
@@ -165,9 +167,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1EF89E721B522B3000D25480 /* Karaoke Kompanion */ = {
+		1EF89E721B522B3000D25480 /* #songops */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1EF89E941B522B3000D25480 /* Build configuration list for PBXNativeTarget "Karaoke Kompanion" */;
+			buildConfigurationList = 1EF89E941B522B3000D25480 /* Build configuration list for PBXNativeTarget "#songops" */;
 			buildPhases = (
 				641F6049A8D9D293455FB251 /* Check Pods Manifest.lock */,
 				1EF89E6F1B522B3000D25480 /* Sources */,
@@ -180,14 +182,14 @@
 			);
 			dependencies = (
 			);
-			name = "Karaoke Kompanion";
-			productName = "Karaoke Kompanion";
-			productReference = 1EF89E731B522B3000D25480 /* Karaoke Kompanion.app */;
+			name = "#songops";
+			productName = "#songops";
+			productReference = 1EF89E731B522B3000D25480 /* #songops.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1EF89E891B522B3000D25480 /* Karaoke KompanionTests */ = {
+		1EF89E891B522B3000D25480 /* #songopsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1EF89E971B522B3000D25480 /* Build configuration list for PBXNativeTarget "Karaoke KompanionTests" */;
+			buildConfigurationList = 1EF89E971B522B3000D25480 /* Build configuration list for PBXNativeTarget "#songopsTests" */;
 			buildPhases = (
 				1EF89E861B522B3000D25480 /* Sources */,
 				1EF89E871B522B3000D25480 /* Frameworks */,
@@ -198,9 +200,9 @@
 			dependencies = (
 				1EF89E8C1B522B3000D25480 /* PBXTargetDependency */,
 			);
-			name = "Karaoke KompanionTests";
-			productName = "Karaoke KompanionTests";
-			productReference = 1EF89E8A1B522B3000D25480 /* Karaoke KompanionTests.xctest */;
+			name = "#songopsTests";
+			productName = "#songopsTests";
+			productReference = 1EF89E8A1B522B3000D25480 /* #songops.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -223,7 +225,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1EF89E6E1B522B3000D25480 /* Build configuration list for PBXProject "Karaoke Kompanion" */;
+			buildConfigurationList = 1EF89E6E1B522B3000D25480 /* Build configuration list for PBXProject "#songops" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -236,8 +238,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1EF89E721B522B3000D25480 /* Karaoke Kompanion */,
-				1EF89E891B522B3000D25480 /* Karaoke KompanionTests */,
+				1EF89E721B522B3000D25480 /* #songops */,
+				1EF89E891B522B3000D25480 /* #songopsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -330,7 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EF89E911B522B3000D25480 /* Karaoke_KompanionTests.swift in Sources */,
+				1EF89E911B522B3000D25480 /* #songopsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,7 +341,7 @@
 /* Begin PBXTargetDependency section */
 		1EF89E8C1B522B3000D25480 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1EF89E721B522B3000D25480 /* Karaoke Kompanion */;
+			target = 1EF89E721B522B3000D25480 /* #songops */;
 			targetProxy = 1EF89E8B1B522B3000D25480 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -456,10 +458,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "Karaoke Kompanion/Info.plist";
+				INFOPLIST_FILE = "#songops/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.simple-things.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "#songops";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -472,10 +474,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "Karaoke Kompanion/Info.plist";
+				INFOPLIST_FILE = "#songops/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.simple-things.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "#songops";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -492,11 +494,11 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Karaoke KompanionTests/Info.plist";
+				INFOPLIST_FILE = "#songopsTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.simple-things.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Karaoke Kompanion.app/Karaoke Kompanion";
+				PRODUCT_NAME = "#songops";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/#songops.app/#songops";
 			};
 			name = Debug;
 		};
@@ -508,18 +510,18 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Karaoke KompanionTests/Info.plist";
+				INFOPLIST_FILE = "#songopsTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.simple-things.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Karaoke Kompanion.app/Karaoke Kompanion";
+				PRODUCT_NAME = "#songops";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/#songops.app/#songops";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1EF89E6E1B522B3000D25480 /* Build configuration list for PBXProject "Karaoke Kompanion" */ = {
+		1EF89E6E1B522B3000D25480 /* Build configuration list for PBXProject "#songops" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1EF89E921B522B3000D25480 /* Debug */,
@@ -528,7 +530,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1EF89E941B522B3000D25480 /* Build configuration list for PBXNativeTarget "Karaoke Kompanion" */ = {
+		1EF89E941B522B3000D25480 /* Build configuration list for PBXNativeTarget "#songops" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1EF89E951B522B3000D25480 /* Debug */,
@@ -537,7 +539,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1EF89E971B522B3000D25480 /* Build configuration list for PBXNativeTarget "Karaoke KompanionTests" */ = {
+		1EF89E971B522B3000D25480 /* Build configuration list for PBXNativeTarget "#songopsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1EF89E981B522B3000D25480 /* Debug */,

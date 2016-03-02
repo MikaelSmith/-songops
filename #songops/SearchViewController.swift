@@ -1,6 +1,6 @@
 //
 //  SearchViewController.swift
-//  Karaoke Kompanion
+//  #songops
 //
 //  Created by Michael Smith on 8/16/15.
 //  Copyright © 2015 Simple Things. All rights reserved.

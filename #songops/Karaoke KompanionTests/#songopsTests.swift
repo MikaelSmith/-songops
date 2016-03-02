@@ -1,6 +1,6 @@
 //
-//  Karaoke_KompanionTests.swift
-//  Karaoke KompanionTests
+//  #songopsTests.swift
+//  #songopsTests
 //
 //  Created by Michael Smith on 7/11/15.
 //  Copyright (c) 2015 Simple Things. All rights reserved.
